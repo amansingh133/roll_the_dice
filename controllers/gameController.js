@@ -2,16 +2,19 @@ let users = [];
 let playerTurns = {};
 
 const joinGame = (data, io) => {
+  console.log("player joined");
   users.push(data);
   playerTurns[data.id] = [];
   io.sockets.emit("join", data);
 };
 
 const getJoinedUsers = (socket) => {
+  console.log("Sending all joined users");
   socket.emit("joined", users);
 };
 
 const rollDice = (data, io) => {
+  console.log("Dice rolled");
   const player = users.find((user) => user.id === data.id);
   player.total = data.total;
   player.turns = data.turns;
@@ -33,6 +36,7 @@ const rollDice = (data, io) => {
 };
 
 const restartGame = (io) => {
+  console.log("Game restarted");
   users = [];
   playerTurns = {};
   io.sockets.emit("restart");

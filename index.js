@@ -13,7 +13,6 @@ const server = createServer(app);
 const io = configureSocket(server);
 
 io.on("connection", (socket) => {
-  console.log("A new player joined");
   handleConnection(socket, io);
 });
 
