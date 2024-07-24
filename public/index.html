@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roll the Dice</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="info-box">
+        <div class="form-group">
+          <input
+            type="text"
+            id="name"
+            class="form-input"
+            placeholder="Your Name"
+            required
+          />
+          <button class="btn draw-border" id="start-btn">Join</button>
+        </div>
+      </div>
+      <div class="players-box">
+        <h3>Players currently online</h3>
+        <table id="players-table"></table>
+      </div>
+      <div id="current-player"></div>
+      <button class="btn draw-border" id="roll-button" hidden>Roll</button>
+      <div class="dice">
+        <img src="./images/dice/dice1.png" alt="Dice" id="dice" />
+      </div>
+      <button class="btn draw-border" id="restart-btn" hidden>Restart</button>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
